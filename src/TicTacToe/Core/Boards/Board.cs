@@ -7,6 +7,7 @@ namespace TicTacToe.Core.Boards;
 public sealed class Board
 {
     private readonly Cell[,] _cells;
+    
     public Player? CheckWinner() => throw new System.NotImplementedException();
     
     public bool IsFull() => throw new System.NotImplementedException();
