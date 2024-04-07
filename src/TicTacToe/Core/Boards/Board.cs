@@ -30,6 +30,10 @@ public sealed class Board
 
     public bool IsMoveValid(int x, int y)
     {
+        if (x < 0 || y < 0)
+        {
+            return false;
+        }
         return x < _size && y < _size && _cells[x, y].IsEmpty();
     }
 
