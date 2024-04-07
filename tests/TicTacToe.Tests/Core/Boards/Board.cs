@@ -18,4 +18,11 @@ public class BoardTests
         var board = Board.Create(3);
         Assert.Equal(expected, board.IsMoveValid(x, y));
     }
+    
+    [Fact]
+    public void TestIsFullWhenAllCellsAreEmpty()
+    {
+        var board = Board.Create(3);
+        Assert.False(board.IsFull());
+    }
 }
