@@ -11,6 +11,13 @@ public abstract class Cell
 
 public sealed class EmptyCell : Cell
 {
+    private EmptyCell()
+    {
+        
+    }
+
+    public static readonly Cell Instance = new EmptyCell();
+
     public override string Display()
     {
         return " ";
@@ -24,6 +31,10 @@ public sealed class EmptyCell : Cell
 
 public sealed class XCell : Cell
 {
+    private XCell()
+    {
+        
+    }
     public override string Display()
     {
         return "X";
@@ -33,14 +44,22 @@ public sealed class XCell : Cell
     {
         return false;
     }
+
+    public static readonly Cell Instance = new XCell();
 }
 
 public sealed class OCell : Cell
 {
+    private OCell()
+    {
+        
+    }
     public override string Display()
     {
         return "O";
     }
+    
+    public static readonly Cell Instance = new OCell();
     
     public override bool IsEmpty()
     {
