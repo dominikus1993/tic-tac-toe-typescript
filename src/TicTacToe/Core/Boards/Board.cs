@@ -9,6 +9,7 @@ public sealed class Board
     private int _moveCount;
     private readonly Cell[,] _cells;
     private readonly int _size;
+    public int Size => _size;
     public Player? CheckWinner() => throw new System.NotImplementedException();
 
     public bool IsFull()
