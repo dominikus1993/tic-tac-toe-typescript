@@ -5,6 +5,16 @@ namespace TicTacToe.Tests.Core.Boards;
 
 public class BoardTests
 {
+    
+    [Theory]
+    [InlineData(0)]
+    [InlineData(-1)]
+    [InlineData(-100)]
+    public void TestCreateBoardWithInvalidArguments(int n)
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(() => Board.Create(n));
+    }
+    
     [Theory]
     [InlineData(0, 0, true)]
     [InlineData(1, 1, true)]

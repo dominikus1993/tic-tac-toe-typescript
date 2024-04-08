@@ -32,6 +32,9 @@ public sealed class Board
     
     public void NextMove(Coordinates coordinates, Cell cell)
     {
+        ArgumentNullException.ThrowIfNull(coordinates);
+        ArgumentNullException.ThrowIfNull(cell);
+        
         if (!IsMoveValid(coordinates))
         {
             throw new ArgumentOutOfRangeException(nameof(coordinates), "Invalid move");
@@ -43,6 +46,7 @@ public sealed class Board
 
     public bool IsMoveValid(Coordinates coordinates)
     {
+        ArgumentNullException.ThrowIfNull(coordinates);
         if (coordinates.X < 0 || coordinates.Y < 0)
         {
             return false;
@@ -53,6 +57,7 @@ public sealed class Board
 
     public static Board Create(int n = 3)
     {
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(n);
 #pragma warning disable CA1814
         var cells = new Cell[n, n];
 #pragma warning restore CA1814
