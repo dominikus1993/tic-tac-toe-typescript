@@ -5,7 +5,7 @@ namespace TicTacToe.Core.Players;
 
 public interface IControlInterface
 {
-    Coordinates Move();
+    Coordinates NextMove(Board board);
 }
 
 public abstract class Player
@@ -24,12 +24,16 @@ public sealed class HumanPlayer : Player
     
     public override Board Move(Board board)
     {
-        var coordinates = _controlInterface.Move();
-        do
+        var coordinates = _controlInterface.NextMove(board);
+        if (board.IsMoveValid(coordinates))
         {
-            
-        } 
-        while (!board.IsMoveValid(coordinates));
+            board.NextMove(coordinates, XCell.Instance);
+            return board;
+        }
+        else
+        {
+            throw new InvalidOperationException("Invalid move");
+        }
     }
 }
 
