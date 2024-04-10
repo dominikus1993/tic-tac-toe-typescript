@@ -3,6 +3,12 @@ using TicTacToe.Core.Players;
 
 namespace TicTacToe.Core.Boards;
 
+
+public abstract class GameResult
+{
+    private GameResult() {}
+}
+
 public readonly record struct Coordinates(int X, int Y);
 public sealed class Board
 {
