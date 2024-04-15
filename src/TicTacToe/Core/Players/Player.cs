@@ -16,10 +16,12 @@ public abstract class Player
 public sealed class HumanPlayer : Player
 {
     private readonly IControlInterface _controlInterface;
+    private readonly Cell _cell;
     
-    public HumanPlayer(IControlInterface controlInterface)
+    public HumanPlayer(IControlInterface controlInterface, Cell cell)
     {
         _controlInterface = controlInterface;
+        _cell = cell;
     }
     
     public override Board Move(Board board)
@@ -27,7 +29,7 @@ public sealed class HumanPlayer : Player
         var coordinates = _controlInterface.NextMove(board);
         if (board.IsMoveValid(coordinates))
         {
-            board.NextMove(coordinates, XCell.Instance);
+            board.NextMove(coordinates, _cell);
             return board;
         }
         else

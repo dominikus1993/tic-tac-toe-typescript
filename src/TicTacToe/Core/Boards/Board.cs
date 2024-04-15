@@ -53,12 +53,13 @@ public sealed class Board
 
     public bool IsMoveValid(Coordinates coordinates)
     {
+        var (x, y) = coordinates;
         ArgumentNullException.ThrowIfNull(coordinates);
-        if (coordinates.X < 0 || coordinates.Y < 0)
+        if (x < 0 || y < 0)
         {
             return false;
         }
-        return coordinates.X < _size && coordinates.Y < _size && _cells[coordinates.X, coordinates.Y].IsEmpty();
+        return x < _size && y < _size && _cells[x, y].IsEmpty();
     }
 
 
