@@ -23,7 +23,7 @@
 
 		// Use correct ESM import behavior
 		"esModuleInterop": true,
-
+    "outDir": "./dist",
 		// Disallow features that require cross-file awareness
 		"isolatedModules": true,
     /* Language and Environment */
